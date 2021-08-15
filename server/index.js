@@ -1,0 +1,25 @@
+'use strict'
+
+const express = require('express')
+const bodyParser = require('body-parser')
+const app = express()
+const port = process.env.PORT || 4000
+
+const categoryRoutes = require('./routes/categories')
+const locationRoutes = require('./routes/locations')
+
+// Initialize DB
+const { initDB } = require('./db')
+initDB()
+
+app.listen(port)
+
+app.use(express.json())
+app.use(bodyParser.urlencoded({
+  extended: true
+}));
+
+app.use('/categories', categoryRoutes)
+app.use('/locations', locationRoutes)
+
+console.log('RESTful API server started on: ' + port)
