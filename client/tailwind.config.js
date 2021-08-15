@@ -2,7 +2,7 @@ module.exports = {
   purge: ['./src/**/*.{js,jsx,ts,tsx}', './public/index.html'],  darkMode: false, // or 'media' or 'class'
   theme: {
     colors: {
-      blue: {
+      skyblue: {
         '50':  '#f3f8f9',
         '100': '#daf1fa',
         '200': '#afe0f5',
@@ -13,7 +13,7 @@ module.exports = {
         '700': '#254a87',
         '800': '#1b3260',
         '900': '#101f3f'
-      }
+      } 
     },
     extend: {
 
