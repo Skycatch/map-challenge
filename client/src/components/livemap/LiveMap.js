@@ -31,9 +31,19 @@ const LiveMap = () => {
     if (!map) initializeMap({ setMap, mapContainer })
   }, [map])
 
+  let toggleAddingLocation = () => {}
+  let isAddingLocation = false
+
   return (
-    <div className="container h-64 md:h-full">
+    <div className="container h-64 md:h-full relative">
       <div className="w-full h-full rounded" ref={el => (mapContainer.current = el)} style={styles} />
+      <div className="absolute right-0 top-0 mx-8 mh-8">
+        <button
+          className='button overMap'
+          onClick={toggleAddingLocation} >
+          {isAddingLocation ? 'Close Form' :'Add Location'}
+        </button>
+      </div>
     </div>
   )
 }
