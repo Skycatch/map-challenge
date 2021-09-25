@@ -1,7 +1,7 @@
 'use strict'
 
 const express = require('express')
-const bodyParser = require('body-parser')
+const cors = require('cors')
 const app = express()
 const port = process.env.PORT || 4000
 
@@ -17,7 +17,10 @@ app.listen(port)
 app.use(express.json())
 app.use(express.urlencoded({
   extended: true
-}));
+}))
+
+app.use(cors())
+
 
 app.use('/categories', categoryRoutes)
 app.use('/locations', locationRoutes)
