@@ -2,8 +2,9 @@
   "locations": [
     {
       "id": "4047c121-a23d-4762-afbd-114ad16870d1",
-      "longitude": -103.37294664147996,
+      "categoryId": "5f18cc32-d107-4b87-9453-30fb9a0a7072",
       "latitude": 20.66712812846032,
+      "longitude": -103.37294664147996,
       "location_name": "Skycatch",
       "open_time": "09:00",
       "close_time": "19:00",
@@ -11,29 +12,52 @@
     },
     {
       "id": "aea4c29f-c15c-4886-a5a7-27dd277e0f84",
-      "longitude": -103.3453,
-      "latitude": 20.6554,
-      "location_name": "Monocuadrado",
+      "categoryId": "5f18cc32-d107-4b87-9453-30fb9a0a7072",
+      "latitude": 20.64588885530582,
+      "longitude": -103.41693043146283,
+      "location_name": "Wizeline",
       "open_time": "08:00",
       "close_time": "18:00",
       "is_deleted": 0
     },
     {
+      "id": "68935b50-d615-4491-a070-ec6ca4cccba0",
+      "categoryId": "3de5038b-9bb7-4dd6-9c69-b4747f5d1ddb",
+      "latitude": 20.671364196191522,
+      "longitude": -103.37243500198831,
+      "location_name": "La Panga del Impostor",
+      "open_time": "12:00",
+      "close_time": "18:00",
+      "is_deleted": 0
+    },
+    {
+      "id": "cd6572e8-9450-4afc-ac49-bba15d0ed5a3",
+      "categoryId": "3de5038b-9bb7-4dd6-9c69-b4747f5d1ddb",
+      "latitude": 20.66994250192676,
+      "longitude": -103.36562665926388,
+      "location_name": "El Terrible Juan",
+      "open_time": "08:00",
+      "close_time": "16:00",
+      "is_deleted": 0
+    },
+    {
       "id": "71c732d7-99da-4c32-8bf6-4b3e4dbc1597",
-      "longitude": -103.3533,
-      "latitude": 20.6534,
-      "location_name": "Gran Plaza",
+      "categoryId": "56c96d0c-73da-4deb-a7f3-83f97654fa32",
+      "latitude": 20.674464655482655,
+      "longitude": -103.38070636252927,
+      "location_name": "Centro Magno",
       "open_time": "07:00",
       "close_time": "23:00",
       "is_deleted": 0
     },
     {
-      "id": "68935b50-d615-4491-a070-ec6ca4cccba0",
-      "longitude": -103.3723,
-      "latitude": 20.6524,
-      "location_name": "Gonzalitos",
-      "open_time": "12:00",
-      "close_time": "18:00",
+      "id": "2bcffc3b-47b0-4399-afa6-ea75fd3e59dc",
+      "categoryId": "56c96d0c-73da-4deb-a7f3-83f97654fa32",
+      "latitude": 20.671151486726107,
+      "longitude": -103.3594279280057,
+      "location_name": "Cinépolis Tolsa",
+      "open_time": "08:00",
+      "close_time": "22:00",
       "is_deleted": 0
     }
   ],
@@ -46,20 +70,14 @@
     },
     {
       "id": "5f18cc32-d107-4b87-9453-30fb9a0a7072",
-      "name": "Eventosss",
-      "color": "#ffffff",
-      "is_deleted": 1
+      "name": "Businesses",
+      "color": "#7C3AED",
+      "is_deleted": 0
     },
     {
       "id": "56c96d0c-73da-4deb-a7f3-83f97654fa32",
       "name": "Entertainment",
       "color": "#FCD34D",
-      "is_deleted": 0
-    },
-    {
-      "name": "Events",
-      "color": "#ffffff",
-      "id": "f530e530-4f8c-49b2-b3c1-c65f02a410ad",
       "is_deleted": 0
     }
   ]

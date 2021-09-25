@@ -15,7 +15,7 @@ initDB()
 app.listen(port)
 
 app.use(express.json())
-app.use(bodyParser.urlencoded({
+app.use(express.urlencoded({
   extended: true
 }));
 
