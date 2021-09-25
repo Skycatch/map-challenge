@@ -39,7 +39,7 @@ const LiveMap = () => {
       <div className="absolute right-0 top-8 mx-8 mh-8">
         <button
           className='button overMap float-right bg-white-200 hover:bg-blue-500 text-skyblue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded'
-          onClick={ () => { console.log(isFormOpen); setFormOpen(!isFormOpen) } } >
+          onClick={ () => { setFormOpen(!isFormOpen) } } >
           { isFormOpen ? 'Close Form' :'Add Location' }
         </button>
         { isFormOpen && (
