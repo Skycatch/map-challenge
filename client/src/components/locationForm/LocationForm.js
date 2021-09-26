@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react'
 import { useFetch } from 'use-http'
 import { useDispatch, useSelector } from 'react-redux'
-import { addLocation } from '../../store/actions'
-import { loadLocations } from '../../store/reducers'
+import { setLocationForm } from '../../store/actions'
+import { loadLocations, saveLocation } from '../../store/reducers'
 
 const TextInput = ({
   label,
@@ -112,8 +112,9 @@ const LocationForm = () => {
     dispatch(loadLocations())
   }, [])
 
-  const saveLocation = () => {
-    dispatch(addLocation(location))
+  const saveLocationForm = () => {
+    dispatch(setLocationForm(location))
+    dispatch(saveLocation())
   }
 
   const onInputChange = (event) => {
@@ -136,9 +137,9 @@ const LocationForm = () => {
 
       <OptionsInput
         label="Category"
-        name="categoryId"
+        name="category_id"
         onChange={ onInputChange }
-        value={ location.categoryId }
+        value={ location.category_id }
         options={ categories } />
 
       <TextInput
@@ -167,7 +168,7 @@ const LocationForm = () => {
 
       <SubmitButton
         label="Submit"
-        onClick={ saveLocation } />
+        onClick={ saveLocationForm } />
 
     </form>
   )
