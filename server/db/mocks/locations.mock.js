@@ -5,7 +5,7 @@ module.exports = {
       categoryId: '5f18cc32-d107-4b87-9453-30fb9a0a7072',
       latitude: 20.66712812846032,
       longitude: -103.37294664147996,
-      location_name: 'Skycatch',
+      name: 'Skycatch',
       open_time: '09:00',
       close_time: '19:00',
       is_deleted: 0
@@ -15,7 +15,7 @@ module.exports = {
       categoryId: '5f18cc32-d107-4b87-9453-30fb9a0a7072',
       latitude: 20.64588885530582,
       longitude: -103.41693043146283,
-      location_name: 'Wizeline',
+      name: 'Wizeline',
       open_time: '08:00',
       close_time: '18:00',
       is_deleted: 0
@@ -25,7 +25,7 @@ module.exports = {
       categoryId: '3de5038b-9bb7-4dd6-9c69-b4747f5d1ddb',
       latitude: 20.671364196191522,
       longitude: -103.37243500198831,
-      location_name: 'La Panga del Impostor',
+      name: 'La Panga del Impostor',
       open_time: '12:00',
       close_time: '18:00',
       is_deleted: 0
@@ -35,7 +35,7 @@ module.exports = {
       categoryId: '3de5038b-9bb7-4dd6-9c69-b4747f5d1ddb',
       latitude: 20.66994250192676,
       longitude: -103.36562665926388,
-      location_name: 'El Terrible Juan',
+      name: 'El Terrible Juan',
       open_time: '08:00',
       close_time: '16:00',
       is_deleted: 0
@@ -45,7 +45,7 @@ module.exports = {
       categoryId: '56c96d0c-73da-4deb-a7f3-83f97654fa32',
       latitude: 20.674464655482655,
       longitude: -103.38070636252927,
-      location_name: 'Centro Magno',
+      name: 'Centro Magno',
       open_time: '07:00',
       close_time: '23:00',
       is_deleted: 0
@@ -55,7 +55,7 @@ module.exports = {
       categoryId: '56c96d0c-73da-4deb-a7f3-83f97654fa32',
       latitude: 20.671151486726107,
       longitude: -103.3594279280057,
-      location_name: 'Cinépolis Tolsa',
+      name: 'Cinépolis Tolsa',
       open_time: '08:00',
       close_time: '22:00',
       is_deleted: 0
