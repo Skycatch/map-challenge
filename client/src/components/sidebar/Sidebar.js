@@ -1,25 +1,39 @@
 import logo from '../logo/logo.svg'
+import { useSelector } from 'react-redux'
 
 const Sidebar = () => {
 
+  const locations = useSelector((state) => state.locations )
+
   return (
-    <div className="w-64 absolute sm:relative bg-skyblue-400 shadow md:h-full flex-col justify-between flex px-8">
+    <div className="w-64 absolute sm:relative bg-skyblue-400 shadow md:h-full flex-col justify-between flex px-2">
       <div className="h-24 pt-8 w-full flex items-center">
         <img src={logo} className="App-logo md:items-center" alt="Skycatch" />
       </div>
-      <div className="h-10 mb-auto flex-grow">
-        <ul className="mt-12">
-            <li className="flex w-full justify-between text-white-300 hover:text-white-500 cursor-pointer items-center mb-6">
-                <div className="flex items-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                    </svg>
-                    <span className="text-sm  ml-2">Locations</span>
-                </div>
-                <div className="py-1 px-3 bg-white-700 rounded text-white-500 flex items-center justify-center text-xs">5</div>
-            </li>
-        </ul>
+      <div className="h-10 mb-auto flex-grow mt-12 px-4">
+        <div className="mt-4">
+          <div className="flex w-full justify-between text-white-300 hover:text-white-500 cursor-pointer items-center mb-6">
+            <div className="flex items-center">
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+              </svg>
+              <span className="text-lg  ml-2">Locations</span>
+            </div>
+            <div className="px-3 bg-white-700 rounded text-white-500 flex items-center justify-center text-xs align-text-bottom">
+              { locations.length }
+            </div>
+          </div>
+          <ul className="mt-2 text-sm">
+            { locations.map((location) => {
+              return (
+                <li className="block w-full text-left py-2 px-2 hover:bg-skyblue-600 hover:text-white hover:cursor-pointer">
+                  { location.name }
+                </li>
+              )
+            }) }
+          </ul>
+        </div>
       </div>
       <div className="flex justify-center my-8 w-full">
           <div className="relative ">
