@@ -10,13 +10,14 @@ const styles = {
   position: 'absolute'
 }
 
-const LocationInfo = ({ location }) => {
+const LocationInfo = ({ location, category }) => {
+
   return (
-    <div className="bg-white text-gray-800 font-semibold py-2 px-2 text-sm text-left">
-      <h2 className="text-lg">{ location.name }</h2>
-      <div>{ location.categoryId }</div>
-      <div>{ location.open_time }</div>
-      <div>{ location.close_time }</div>
+    <div className="bg-white text-gray-800 py-2 px-2 text-sm text-left w-52">
+      <h2 className="text-lg mb-2 pb-2 border-b-2 font-bold">{ location.name }</h2>
+      <div className="font-bold">{ category.name }</div>
+      <div>Opens: { location.open_time }</div>
+      <div>Closes: { location.close_time }</div>
     </div>
   )
 }
@@ -26,10 +27,30 @@ const LiveMap = () => {
   const [map, setMap] = useState(null);
   const [isFormOpen, setFormOpen] = useState(false)
   const mapContainer = useRef(null);
+
   const locations = useSelector(state => state.locations)
+  const categories = useSelector(state => state.categories)
+  const currentLocation = useSelector(state => state.currentLocation)
 
   const [markers, setMarkers] = useState({})
   const [popups, setPopups] = useState({})
+
+  useEffect(() => {
+    if (map && currentLocation) {
+      for(const popupId of Object.keys(popups)) {
+        console.log({ popups, popupId, pp: popups[popupId] })
+        console.log('PPPP', popups[popupId])
+        if (popupId === currentLocation) {
+          popups[popupId].addTo(map)
+        }
+        else {
+          popups[popupId].remove()
+        }
+      }
+      const location = locations.find(location => location.id === currentLocation)
+      map.flyTo({ center: [location.longitude, location.latitude] })
+    }
+  }, [currentLocation, map])
 
   useEffect(() => {
     mapboxgl.accessToken = process.env.REACT_APP_MAPBOX_KEY;
@@ -55,18 +76,19 @@ const LiveMap = () => {
     if (map) {
       const markers = {}
       const popups = {}
-      locations.forEach((location, index) => {
+      locations.forEach((location) => {
+        const category = categories.find(cat => cat.id === location.categoryId)
         const marker = new Marker()
           .setLngLat([location.longitude, location.latitude])
           .addTo(map)
         markers[location.id] = marker
         const placeholder = document.createElement('div')
         ReactDOM.render(
-          <LocationInfo location={location} />,
+          <LocationInfo location={ location } category={ category } />,
           placeholder
         )
         const popup = new Popup({
-          closeButton: true,
+          closeButton: false,
           closeOnClick: true,
           anchor: 'bottom-left',
           open: false

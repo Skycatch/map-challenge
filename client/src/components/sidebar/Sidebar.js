@@ -1,11 +1,17 @@
 import logo from '../logo/logo.svg'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+import { setCurrentLocation } from '../../store/actions'
+import { useEffect } from 'react'
 
 const Sidebar = () => {
 
+  const dispatch = useDispatch()
   const locations = useSelector(state => state.locations)
-  const setCurrentLocation = (location) => {
-    console.log('Current location:', location)
+  const currentLocation = useSelector(state => state.currentLocation)
+
+  const selectLocation = (location) => {
+    console.log('Setting location: ', location)
+    dispatch(setCurrentLocation(location))
   }
 
   return (
@@ -29,9 +35,13 @@ const Sidebar = () => {
           </div>
           <ul className="mt-2 text-sm">
             { locations.map((location) => {
+              let className='block w-full text-left py-2 px-2 hover:bg-skyblue-600 hover:text-white cursor-pointer'
+              if (currentLocation && currentLocation === location.id) {
+                className += ' bg-skyblue-600 text-white'
+              }
               return (
-                <li className="block w-full text-left py-2 px-2 hover:bg-skyblue-600 hover:text-white cursor-pointer"
-                  onClick={ () => { setCurrentLocation(location.id) } }
+                <li className={ className }
+                  onClick={ () => { selectLocation(location.id) } }
                   key={ location.id }
                 >
                   { location.name }

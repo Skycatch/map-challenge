@@ -4,7 +4,7 @@ import LiveMap from './components/livemap/LiveMap'
 import { useDispatch } from 'react-redux'
 import './App.css'
 import './App.tailwind.css'
-import { loadLocations } from './store/reducers'
+import { loadCategories, loadLocations } from './store/reducers'
 
 const App = function () {
 
@@ -12,6 +12,7 @@ const App = function () {
 
   useEffect(() => {
     dispatch(loadLocations())
+    dispatch(loadCategories())
   }, [])
 
   return (
