@@ -1,11 +1,24 @@
 import React, { useEffect, useRef, useState } from 'react'
-import mapboxgl from 'mapbox-gl'
+import ReactDOM from 'react-dom'
+import mapboxgl, { Marker, Popup } from 'mapbox-gl'
 import 'mapbox-gl/dist/mapbox-gl.css'
 import LocationForm from '../locationForm/LocationForm'
+import { useSelector } from 'react-redux'
 
 const styles = {
   width: '100vw',
   position: 'absolute'
+}
+
+const LocationInfo = ({ location }) => {
+  return (
+    <div className="bg-white text-gray-800 font-semibold py-2 px-2 text-sm text-left">
+      <h2 className="text-lg">{ location.name }</h2>
+      <div>{ location.categoryId }</div>
+      <div>{ location.open_time }</div>
+      <div>{ location.close_time }</div>
+    </div>
+  )
 }
 
 const LiveMap = () => {
@@ -13,15 +26,23 @@ const LiveMap = () => {
   const [map, setMap] = useState(null);
   const [isFormOpen, setFormOpen] = useState(false)
   const mapContainer = useRef(null);
+  const locations = useSelector(state => state.locations)
+
+  const [markers, setMarkers] = useState({})
+  const [popups, setPopups] = useState({})
 
   useEffect(() => {
     mapboxgl.accessToken = process.env.REACT_APP_MAPBOX_KEY;
     const initializeMap = ({ setMap, mapContainer }) => {
+      const center = locations.length ?
+        [locations[0].longitude, locations[0].latitude] :
+        [0, 0]
+
       const map = new mapboxgl.Map({
         container: mapContainer.current,
         style: 'mapbox://styles/mapbox/streets-v11', // stylesheet location
-        center: [0, 0],
-        zoom: 5
+        zoom: 12,
+        center
       });
 
       map.on('load', () => {
@@ -31,7 +52,34 @@ const LiveMap = () => {
     }
 
     if (!map) initializeMap({ setMap, mapContainer })
-  }, [map])
+    if (map) {
+      const markers = {}
+      const popups = {}
+      locations.forEach((location, index) => {
+        const marker = new Marker()
+          .setLngLat([location.longitude, location.latitude])
+          .addTo(map)
+        markers[location.id] = marker
+        const placeholder = document.createElement('div')
+        ReactDOM.render(
+          <LocationInfo location={location} />,
+          placeholder
+        )
+        const popup = new Popup({
+          closeButton: true,
+          closeOnClick: true,
+          anchor: 'bottom-left',
+          open: false
+        })
+        .setLngLat([ location.longitude, location.latitude ])
+        .setDOMContent(placeholder)
+        popups[location.id] = popup
+        marker.setPopup(popup)
+      })
+      setMarkers(markers)
+      setPopups(popups)
+    }
+  }, [map, locations])
 
   return (
     <div className="container h-64 md:h-full relative">
@@ -43,7 +91,7 @@ const LiveMap = () => {
           { isFormOpen ? 'Close Form' :'Add Location' }
         </button>
         { isFormOpen && (
-          <div className="clear-both right-0 bg-white text-blue-700 font-semibold hover:text-white py-2 px-4 rounded shadow-md text-sm px-8 py-8">
+          <div className="clear-both right-0 bg-white text-blue-700 font-semibold hover:text-white rounded shadow-md text-sm px-8 py-8">
             <LocationForm />
           </div>
         )}

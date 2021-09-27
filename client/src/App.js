@@ -10,7 +10,7 @@ const App = function () {
 
   const dispatch = useDispatch()
 
-  useEffect(async () => {
+  useEffect(() => {
     dispatch(loadLocations())
   }, [])
 

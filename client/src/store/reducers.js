@@ -1,11 +1,12 @@
 import {
   ADD_LOCATION, SET_LOCATIONS, SET_LOCATION_FORM,
-  addLocation, setLocations
+  addLocation, setLocations, setCurrentLocation, SET_CURRENT_LOCATION
 } from "./actions";
 
 const initialState = {
   locations: [],
-  locationForm: {}
+  locationForm: {},
+  currentLocation: null
 }
 
 export const locationsReducer = (state = initialState, action) => {
@@ -18,6 +19,9 @@ export const locationsReducer = (state = initialState, action) => {
     }
     case SET_LOCATION_FORM: {
       return { ...state, locationForm: action.payload }
+    }
+    case SET_CURRENT_LOCATION: {
+      return { ...state, currentLocation: action.payload }
     }
     default: {
       return state;
@@ -46,4 +50,5 @@ export const loadLocations = () => async (dispatch, getState) => {
     .then(res => res.json())
     .then(res => res.data)
   dispatch(setLocations(locations))
+  dispatch(setCurrentLocation(locations[0]))
 }

@@ -3,7 +3,10 @@ import { useSelector } from 'react-redux'
 
 const Sidebar = () => {
 
-  const locations = useSelector((state) => state.locations )
+  const locations = useSelector(state => state.locations)
+  const setCurrentLocation = (location) => {
+    console.log('Current location:', location)
+  }
 
   return (
     <div className="w-64 absolute sm:relative bg-skyblue-400 shadow md:h-full flex-col justify-between flex px-2">
@@ -27,7 +30,10 @@ const Sidebar = () => {
           <ul className="mt-2 text-sm">
             { locations.map((location) => {
               return (
-                <li className="block w-full text-left py-2 px-2 hover:bg-skyblue-600 hover:text-white hover:cursor-pointer">
+                <li className="block w-full text-left py-2 px-2 hover:bg-skyblue-600 hover:text-white cursor-pointer"
+                  onClick={ () => { setCurrentLocation(location.id) } }
+                  key={ location.id }
+                >
                   { location.name }
                 </li>
               )
