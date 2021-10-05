@@ -5,27 +5,27 @@ const { db } = require('../db')
 const Category = {
   list: () => {
     return db.get('categories')
-      .filter({ is_deleted: 0 })
+      .filter({ isDeleted: 0 })
       .value()
   },
 
   get: (id) => {
     return db.get('categories')
-      .find({ id: id, is_deleted: 0 })
+      .find({ id: id, isDeleted: 0 })
       .value()
   },
 
   create: (payload) => {
     id = uuidv4()
     db.get('categories')
-      .push(Object.assign({}, payload, { id, is_deleted: 0 }))
+      .push(Object.assign({}, payload, { id, isDeleted: 0 }))
       .write()
     return Category.get(id)
   },
 
   update: (id, payload) => {
     return db.get('categories')
-      .find({ id: id, is_deleted: 0 })
+      .find({ id: id, isDeleted: 0 })
       .assign(payload)
       .write()
   },
@@ -33,7 +33,7 @@ const Category = {
   delete: (id) => {
     return db.get('categories')
       .find({ id })
-      .assign({ is_deleted: 1 })
+      .assign({ isDeleted: 1 })
       .write()
   }
 }

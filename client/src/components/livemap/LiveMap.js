@@ -15,9 +15,9 @@ const LocationInfo = ({ location, category }) => {
   return (
     <div className="bg-white text-gray-800 py-2 px-2 text-sm text-left w-52">
       <h2 className="text-lg mb-2 pb-2 border-b-2 font-bold">{ location.name }</h2>
-      <div className="font-bold">{ category.name }</div>
-      <div>Opens: { location.open_time }</div>
-      <div>Closes: { location.close_time }</div>
+      <div className="font-bold">{ category && category.name }</div>
+      <div>Opens: { location.openTime }</div>
+      <div>Closes: { location.closeTime }</div>
     </div>
   )
 }

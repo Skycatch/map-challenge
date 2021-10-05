@@ -40,7 +40,7 @@ const LocationForm = () => {
         label="Category"
         name="categoryId"
         onChange={ onInputChange }
-        value={ location.category_id }
+        value={ location.categoryId }
         options={ categories } />
 
       <TextInput
@@ -57,15 +57,15 @@ const LocationForm = () => {
 
       <TextInput
         label="Open Hour"
-        name="open_time"
+        name="openTime"
         onChange={ onInputChange }
-        value={ location.open_time } />
+        value={ location.openTime } />
 
       <TextInput
         label="Close Hour"
         name="close_time"
         onChange={ onInputChange }
-        value={ location.close_time } />
+        value={ location.closeTime } />
 
       <SubmitButton
         label="Submit"
