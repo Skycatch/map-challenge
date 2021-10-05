@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { setLocationForm } from '../../store/actions'
 import { saveLocation } from '../../store/reducers'
 import { TextInput } from './TextInput'
 import { OptionsInput } from './OptionsInput'
@@ -14,17 +13,14 @@ const LocationForm = () => {
   const categories = useSelector(state => state.categories)
 
   const saveLocationForm = () => {
-    dispatch(setLocationForm(location))
-    dispatch(saveLocation())
+    dispatch(saveLocation(location))
   }
 
   const onInputChange = (event) => {
-    console.log(event.target.name, event.target.value)
     setLocation({
       ...location,
       [event.target.id]: event.target.value
     })
-    console.log('location changed:', location)
   }
 
   return (

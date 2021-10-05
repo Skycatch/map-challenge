@@ -38,8 +38,6 @@ const LiveMap = () => {
   useEffect(() => {
     if (map && currentLocation) {
       for(const popupId of Object.keys(popups)) {
-        console.log({ popups, popupId, pp: popups[popupId] })
-        console.log('PPPP', popups[popupId])
         if (popupId === currentLocation) {
           popups[popupId].addTo(map)
         }

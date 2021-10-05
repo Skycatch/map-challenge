@@ -10,7 +10,6 @@ const Sidebar = () => {
   const currentLocation = useSelector(state => state.currentLocation)
 
   const selectLocation = (location) => {
-    console.log('Setting location: ', location)
     dispatch(setCurrentLocation(location))
   }
 

@@ -1,11 +1,10 @@
 import {
-  ADD_LOCATION, SET_LOCATIONS, SET_LOCATION_FORM, SET_CURRENT_LOCATION,
+  ADD_LOCATION, SET_LOCATIONS, SET_CURRENT_LOCATION,
   addLocation, setLocations, setCurrentLocation, setCategories, SET_CATEGORIES
 } from "./actions";
 
 const initialState = {
   locations: [],
-  locationForm: {},
   currentLocation: null,
   categories: []
 }
@@ -17,9 +16,6 @@ export const locationsReducer = (state = initialState, action) => {
     }
     case SET_LOCATIONS: {
       return { ...state, locations: action.payload }
-    }
-    case SET_LOCATION_FORM: {
-      return { ...state, locationForm: action.payload }
     }
     case SET_CURRENT_LOCATION: {
       return { ...state, currentLocation: action.payload }
@@ -33,15 +29,14 @@ export const locationsReducer = (state = initialState, action) => {
   }
 }
 
-export const saveLocation = () => async (dispatch, getState) => {
-  const locationForm = getState().locationForm
+export const saveLocation = (locationData) => async (dispatch, getState) => {
   const location = await fetch('http://localhost:4000/locations', {
     method: 'POST',
     headers: {
       'Accept': 'application/json',
       'Content-type': 'application/json'
     },
-    body: JSON.stringify(locationForm)
+    body: JSON.stringify(locationData)
   })
     .then(res => res.json())
     .then(res => res.data)
