@@ -12,7 +12,7 @@ const Fivesquare = {
           places: [
             {
               "id": 70111470,
-              "title": "The Little Things",
+              "name": "The Little Things",
               "pictures": [
                 { width: 150, height: 200, url: "https://igx.5sq.net/img/general/6ab436-8de7.jpg" },
                 { width: 200, height: 200, url: "https://igx.5sq.net/img/general/de6ee953-e8eb_duy-sdfsdlcg.jpg" }
@@ -27,7 +27,7 @@ const Fivesquare = {
             },
             {
               "id": 654356453,
-              "title": "Khan's Tent",
+              "name": "Khan's Tent",
               "pictures": [
                 { width: 200, height: 200, url: "https://igx.5sq.net/img/general/6_d9b4dds_0-36-8de7.jpg" },
                 { width: 150, height: 200, url: "https://igx.5sq.net/img/general/qWQ19b436-8de7.jpg?token=adfsadfasd" }
@@ -47,7 +47,7 @@ const Fivesquare = {
           places: [
             {
               "id": 65432445,
-              "title": "The Harp",
+              "name": "The Harp",
               "pictures": [
                 { width: 150, height: 200, url: "https://igx.5sq.net/img/general/65Ds9b436-8_d-e7__dsfudy29.jpg" },
                 { width: 200, height: 200, url: "https://igx.5sq.net/img/general/6Z1d9b4jfubhchd_36-8de7.jpg?dhu3l=aduuud" }
@@ -62,7 +62,7 @@ const Fivesquare = {
             },
             {
               "id": 675465,
-              "title": "Afreddo Gelateria",
+              "name": "Afreddo Gelateria",
               "pictures": [
                 { width: 200, height: 200, url: "https://igx.5sq.net/img/general/6519b436-8de7hh__ds-addf.jpg" },
                 { width: 150, height: 200, url: "https://igx.5sq.net/img/general/6sdf19b43dds6-8ssde7.jpg?receipt=duls23d" },
