@@ -2,7 +2,7 @@ const { v4: uuidv4 } = require('uuid')
 
 const { db } = require('../db')
 
-const Category = {
+const Location = {
   list: () => {
     return db.get('locations')
       .filter({ isDeleted: 0 })
@@ -23,7 +23,7 @@ const Category = {
     db.get('locations')
       .push(Object.assign({}, payload, { id, isDeleted: 0 }))
       .write()
-    return Category.get(id)
+    return Location.get(id)
   },
 
   update: (id, payload) => {
@@ -41,4 +41,4 @@ const Category = {
   }
 }
 
-module.exports = Category
+module.exports = Location
