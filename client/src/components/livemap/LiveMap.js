@@ -111,7 +111,7 @@ const LiveMap = () => {
           { isFormOpen ? 'Close Form' :'Add Location' }
         </button>
         { isFormOpen && (
-          <div className="clear-both right-0 bg-white text-blue-700 font-semibold hover:text-white rounded shadow-md text-sm px-8 py-8">
+          <div className="clear-both right-0 bg-white text-blue-700 font-semibold rounded shadow-md text-sm px-8 py-8">
             <LocationForm />
           </div>
         )}
