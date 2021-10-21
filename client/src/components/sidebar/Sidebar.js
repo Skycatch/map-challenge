@@ -1,7 +1,7 @@
 import logo from '../logo/logo.svg'
 import { useDispatch, useSelector } from 'react-redux'
 import { setCurrentLocation } from '../../store/actions'
-import { useEffect } from 'react'
+import React from 'react'
 
 const Sidebar = () => {
 

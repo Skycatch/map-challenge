@@ -1,6 +1,6 @@
 import {
   ADD_LOCATION, SET_LOCATIONS, SET_CURRENT_LOCATION,
-  addLocation, setLocations, setCurrentLocation, setCategories, SET_CATEGORIES
+  addLocation, setLocations, setCategories, SET_CATEGORIES
 } from "./actions";
 
 const initialState = {

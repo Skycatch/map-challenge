@@ -4,6 +4,7 @@ import { saveLocation } from '../../store/reducers'
 import { TextInput } from './TextInput'
 import { OptionsInput } from './OptionsInput'
 import { SubmitButton } from './SubmitButton'
+import React from 'react'
 
 const LocationForm = () => {
 

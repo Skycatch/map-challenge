@@ -72,14 +72,14 @@ const LiveMap = () => {
 
     if (!map) initializeMap({ setMap, mapContainer })
     if (map) {
-      const markers = {}
-      const popups = {}
+      const mapMarkers = {}
+      const mapPopups = {}
       locations.forEach((location) => {
         const category = categories.find(cat => cat.id === location.categoryId)
         const marker = new Marker()
           .setLngLat([location.longitude, location.latitude])
           .addTo(map)
-        markers[location.id] = marker
+        mapMarkers[location.id] = marker
         const placeholder = document.createElement('div')
         ReactDOM.render(
           <LocationInfo location={ location } category={ category } />,
@@ -93,11 +93,11 @@ const LiveMap = () => {
         })
         .setLngLat([ location.longitude, location.latitude ])
         .setDOMContent(placeholder)
-        popups[location.id] = popup
+        mapPopups[location.id] = popup
         marker.setPopup(popup)
       })
-      setMarkers(markers)
-      setPopups(popups)
+      setMarkers(mapMarkers)
+      setPopups(mapPopups)
     }
   }, [map, locations])
 
