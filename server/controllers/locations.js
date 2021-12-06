@@ -1,4 +1,5 @@
 const Location = require('../models/location')
+const {validationResult } = require("express-validator");
 
 const controller = {
 
@@ -24,8 +25,14 @@ const controller = {
 
   create: (req, res) => {
     try {
-      result = Location.create(req.body)
-      res.status(200).json({ data: result })
+      let errors= validationResult(req);
+      if (errors.isEmpty()) {
+        result = Location.create(req.body)
+        res.status(200).json({ data: result })
+      } else {
+        res.status(400).json({ errors: errors.errors })
+      }
+      
     }
     catch(error) {
       res.status(500).json({ error: error.message })

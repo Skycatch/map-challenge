@@ -21,7 +21,6 @@ app.use(express.urlencoded({
 
 app.use(cors())
 
-
 app.use('/categories', categoryRoutes)
 app.use('/locations', locationRoutes)
 
